@@ -1,3 +1,8 @@
+# Dependencies 
+
+> pip install python-dotenv os requests spotipy json time 
+
+
 # WARNING ⚠️ How to make it work?
 
 To make script work you have to get your own client id and client secret from spotify, it's ultra simple. To get that please go to https://developer.spotify.com/dashboard/applications
