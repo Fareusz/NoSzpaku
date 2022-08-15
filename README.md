@@ -1,6 +1,6 @@
 # Dependencies 
 
-> pip install python-dotenv os requests spotipy json time 
+> pip install python-dotenv requests spotipy
 
 
 # WARNING ⚠️ How to make it work?
