@@ -11,10 +11,11 @@ Then proceed with instructions:
 
 0. Clony the repository to a new folder. You will get an noszpaku.py file and .env file
 1. Create an app using "Create an App" green button on the top right.
-2. Enter anything you want. It doesn't matter at all.
+2. Enter anything you want. It doesn't matter at all. 
+2.5 Click "Edit settings" and set at least one redirect URI https://i.imgur.com/UacYsjB.png (it can be https://fareusz.live)
 3. Copy client ID and client secret. 
 https://i.imgur.com/2sDk4CG.png <- it looks like on this screenshot
-4. Paste both of those tokens into .env file. (redirect uri can be anything you want)
+4. Paste both of those tokens into .env file REMEMBER TO SET THE REDIRECT URI TOO!
 5. Run the script by command line `python noszpaku.py`. Keep the window in the background. If you want to stop the script close window.
 
 
