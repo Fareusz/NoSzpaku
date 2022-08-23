@@ -1,10 +1,7 @@
 from dotenv import load_dotenv
 import os
 import requests
-import sys
-import json
 import spotipy
-import webbrowser
 import spotipy.util as util
 from json.decoder import JSONDecodeError
 import time
@@ -24,7 +21,7 @@ auth_response = requests.post(AUTH_URL, {
     'redirect_uri': '127.0.0.1'
 })
 
-username = input('Podaj nazwe uzytkownika: ')
+username = input('Please enter your username: ')
 scope = 'user-read-private user-read-playback-state user-modify-playback-state'
 
 try:
@@ -35,26 +32,23 @@ except (AttributeError, JSONDecodeError):
 
 spotifyObject = spotipy.Spotify(auth=token)
 devices = spotifyObject.devices()
-print(json.dumps(devices, sort_keys=True, indent=4))
-deviceID = devices['devices'][0]['id']
+print('You successfully signed in with spotify.')
+deviceID = devices['devices'][0]['name']
+print('Script is working on device: ' + deviceID)
 
 while True:
     track = spotifyObject.current_user_playing_track()
-    print(json.dumps(track, sort_keys=True, indent=4))
-    print()
+    if track is None:
+        print('You are not listening to anything')
+        time.sleep(2)
+        continue
     artists = track['item']['artists']
+
     artist = track['item']['artists'][0]['name']
     track = track['item']['name']
-    print(artists)
     if artist !="":
         print("Currently playing " + artist + " - " + track)
-    for x in artists:
-        if 'Szpaku' == artists[0]['name']:
-            print('ta słuchamy szpaka jak co')
-            trackSelectionList = ['spotify:track:7JprB3m3eZ7nVMsyBkitJ9']
-            spotifyObject.start_playback(deviceID, None,
-                                             trackSelectionList)
-    user = spotifyObject.current_user()
-    displayName = user['display_name']
-    follower = user['followers']['total']
-    time.sleep(5)
+    for x in range(len(artists)):
+        if artists[x]['name'] == 'Szpaku':
+            spotifyObject.next_track()
+    time.sleep(1)
