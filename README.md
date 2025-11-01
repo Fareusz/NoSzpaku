@@ -9,7 +9,7 @@ To make script work you have to get your own client id and client secret from sp
 
 Then proceed with instructions:
 
-0. Clony the repository to a new folder. You will get an noszpaku.py file and .env file
+0. Clone the repository to a new folder. You will get an noszpaku.py file and .env file
 1. Create an app using "Create an App" green button on the top right.
 2. Enter anything you want. It doesn't matter at all. 
 2.5 Click "Edit settings" and set at least one redirect URI https://i.imgur.com/UacYsjB.png (it can be https://fareusz.live)
